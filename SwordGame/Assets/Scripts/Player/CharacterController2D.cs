@@ -20,7 +20,6 @@ public class CharacterController2D : MonoBehaviour
 	private Vector3 m_Velocity = Vector3.zero;
 	
 	private float jumpHoldTimer = 0f;
-	private readonly float jumpHoldTimerMax = 0.2f;
 	private float rigidBodyGravityScaleOriginal = 0f;
 
 	[Header("Events")]
@@ -141,20 +140,20 @@ public class CharacterController2D : MonoBehaviour
         }
 		if (!m_Grounded)
 		{
-			if (jump && jumpHoldTimer < jumpHoldTimerMax)
+			if (jump && jumpHoldTimer < m_JumpForce / 2000)
 			{
                 //Debug.Log(Time.deltaTime);
-                m_Rigidbody2D.gravityScale = jumpHoldTimer;
-				jumpHoldTimer = Mathf.Min(jumpHoldTimer + Time.deltaTime, jumpHoldTimerMax);
+                m_Rigidbody2D.gravityScale = 0.2f + jumpHoldTimer;
+				jumpHoldTimer = Mathf.Min(jumpHoldTimer + Time.deltaTime, m_JumpForce / 2000);
             } else if (m_Rigidbody2D.gravityScale != rigidBodyGravityScaleOriginal)
 			{
 				m_Rigidbody2D.gravityScale = rigidBodyGravityScaleOriginal;
 			}
 		}
-	}
+    }
 
 
-	private void Flip()
+    private void Flip()
 	{
 		// Switch the way the player is labelled as facing.
 		m_FacingRight = !m_FacingRight;
