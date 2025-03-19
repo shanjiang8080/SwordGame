@@ -297,7 +297,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5944183, y: 5.413742, z: -10}
+  m_LocalPosition: {x: 4.59, y: 4.37, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2706,7 +2706,7 @@ Transform:
   m_GameObject: {fileID: 1502889664}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5944183, y: 5.413742, z: 0}
+  m_LocalPosition: {x: 4.59, y: 4.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2847,6 +2847,7 @@ GameObject:
   - component: {fileID: 1797119661}
   - component: {fileID: 1797119662}
   - component: {fileID: 1797119663}
+  - component: {fileID: 1797119664}
   m_Layer: 3
   m_Name: Sword
   m_TagString: Untagged
@@ -2881,7 +2882,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
@@ -2987,7 +2988,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 09496680b1dbecc4baaab36766888cc8, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3028,6 +3029,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1502889667}
   camera: {fileID: 519420031}
+  controller: {fileID: 1797119664}
+--- !u!114 &1797119664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797119655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b84665d83d44e24092d70126b173277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sword: {fileID: 1797119656}
+  body: {fileID: 1797119658}
+  smoothingSpeed: 3
+  player: {fileID: 1502889664}
 --- !u!1 &2142825357
 GameObject:
   m_ObjectHideFlags: 0
@@ -3147,7 +3165,7 @@ Transform:
   m_GameObject: {fileID: 2142825357}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5944183, y: 5.413742, z: -10}
+  m_LocalPosition: {x: 4.59, y: 4.37, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

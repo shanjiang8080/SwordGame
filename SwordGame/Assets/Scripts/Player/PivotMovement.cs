@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PivotController : MonoBehaviour
+public class PivotMovement : MonoBehaviour
 {
     // need reference to Camera and Player location for mouse control scheme
     public Transform player;
     public new Camera camera;
+    public SwordController controller;
 
     InputAction pivotAction;
     private Vector2 angle;
@@ -34,5 +35,6 @@ public class PivotController : MonoBehaviour
     void FixedUpdate()
     {
         //Debug.Log(angle);
+        controller.Move(angle);
     }
 }
