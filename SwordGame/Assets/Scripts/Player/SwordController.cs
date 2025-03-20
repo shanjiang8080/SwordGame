@@ -9,6 +9,7 @@ public class SwordController : MonoBehaviour
     public Object player;
     private Rigidbody2D playerBody;
 
+
     private bool isColliding = false;
 
     private void Start()
@@ -18,7 +19,8 @@ public class SwordController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Colliding");
+        /*
+                 Debug.Log("Colliding");
         foreach (var collide in collision.contacts)
         {
             Vector2 collisionNormal = collide.normal;
@@ -27,6 +29,7 @@ public class SwordController : MonoBehaviour
             playerBody.AddForce(flingDirection * body.linearVelocity.magnitude, ForceMode2D.Impulse);
             
         }
+*/
     }
     void OnCollisionExit2D(Collision2D collision)
     {
@@ -36,10 +39,7 @@ public class SwordController : MonoBehaviour
     {
         // do a linear interpolate between the existing angle and the new angle.
         float angle = Mathf.Atan2(angleV.y, angleV.x) * Mathf.Rad2Deg - 90;
-        float oldAngle = sword.localEulerAngles.z;
-        float smoothedAngle = Mathf.LerpAngle(oldAngle, angle, 0.5f);
-        body.rotation = smoothedAngle;
-        sword.localPosition = Vector3.zero;
+        sword.transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
 }
