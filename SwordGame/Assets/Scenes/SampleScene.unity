@@ -3207,37 +3207,6 @@ CapsuleCollider2D:
   m_Size: {x: 0.5, y: 3}
   m_Direction: 0
 <<<<<<< HEAD
---- !u!114 &1797119663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797119655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85015dc1190e982489673838678277e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1502889667}
-  camera: {fileID: 519420031}
-  controller: {fileID: 1797119664}
---- !u!114 &1797119664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797119655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b84665d83d44e24092d70126b173277, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sword: {fileID: 1797119656}
-  body: {fileID: 1797119658}
-  smoothingSpeed: 3
-  player: {fileID: 1502889664}
 --- !u!1 &2006114692
 GameObject:
   m_ObjectHideFlags: 0
