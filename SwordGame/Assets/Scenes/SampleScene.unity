@@ -297,7 +297,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.59, y: 4.37, z: -10}
+  m_LocalPosition: {x: -2.86, y: 9.47, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -452,7 +452,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 632464339}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: FloorCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -483,7 +483,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1004324850}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: CeilingCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2635,7 +2635,7 @@ GameObject:
   - component: {fileID: 1502889675}
   - component: {fileID: 1502889672}
   - component: {fileID: 1502889674}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2706,7 +2706,7 @@ Transform:
   m_GameObject: {fileID: 1502889664}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.59, y: 4.37, z: 0}
+  m_LocalPosition: {x: -2.86, y: 9.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2727,13 +2727,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f914818c5e1c73244841d0f8cccc91bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 150
+  m_JumpForce: 300
+  JumpForceWithoutSword: 600
   m_CrouchSpeed: 0.36
   m_MovementSmoothing: 0.05
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 87
+    m_Bits: 73
   m_GroundCheck: {fileID: 632464339}
   m_CeilingCheck: {fileID: 1004324850}
   m_CrouchDisableCollider: {fileID: 0}
@@ -2777,7 +2778,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -2798,7 +2799,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -2833,6 +2834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1502889668}
   runSpeed: 100
+  pivotMovement: {fileID: 1797119663}
 --- !u!1 &1797119655
 GameObject:
   m_ObjectHideFlags: 0
@@ -2846,7 +2848,7 @@ GameObject:
   - component: {fileID: 1797119663}
   - component: {fileID: 1797119664}
   - component: {fileID: 1797119665}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2938,6 +2940,7 @@ MonoBehaviour:
   player: {fileID: 1502889667}
   camera: {fileID: 519420031}
   controller: {fileID: 1797119664}
+  isThrown: 0
 --- !u!114 &1797119664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2953,6 +2956,7 @@ MonoBehaviour:
   sword: {fileID: 1797119656}
   body: {fileID: 0}
   smoothingSpeed: 3
+  throwSpeed: 900
   player: {fileID: 1502889664}
 --- !u!70 &1797119665
 CapsuleCollider2D:
@@ -2964,7 +2968,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 09496680b1dbecc4baaab36766888cc8, type: 2}
+  m_Material: {fileID: 6200000, guid: 3b9efcfdd40d79b44aafd4ef3baee561, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3110,7 +3114,7 @@ Transform:
   m_GameObject: {fileID: 2142825357}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.59, y: 4.37, z: -10}
+  m_LocalPosition: {x: -2.86, y: 9.47, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -9,11 +9,16 @@ public class PivotMovement : MonoBehaviour
     public SwordController controller;
 
     InputAction pivotAction;
+    InputAction throwAction;
     private Vector2 angle;
+
+    public bool isThrown;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         pivotAction = InputSystem.actions.FindAction("Pivot");
+        throwAction = InputSystem.actions.FindAction("Throw");
+        isThrown = false;
     }
 
     // Update is called once per frame
@@ -31,10 +36,26 @@ public class PivotMovement : MonoBehaviour
             worldposition.z = 0f;
             angle = (worldposition - player.transform.position).normalized;
         }
+
+        // read throw/recall button
+        if (throwAction.WasPressedThisFrame())
+        {
+            if (!isThrown)
+            {
+                isThrown = true;
+                Debug.Log("throw it!");
+                // throw has happened. throw the thing
+                // unparent the thing
+                transform.parent = null;
+                controller.Throw();
+            }
+        }
     }
     void FixedUpdate()
     {
-        //Debug.Log(angle);
-        controller.Move(angle);
+        if (!isThrown)
+        {
+            controller.Move(angle);
+        }
     }
 }

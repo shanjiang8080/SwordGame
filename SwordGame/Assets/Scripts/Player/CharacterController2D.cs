@@ -3,7 +3,8 @@ using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour
 {
-	[SerializeField] private float m_JumpForce = 400f;							// Amount of force added when the player jumps.
+	[SerializeField] private float m_JumpForce = 400f;  // Amount of force added when the player jumps.
+	public float JumpForceWithoutSword = 600f;
 	[Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;			// Amount of maxSpeed applied to crouching movement. 1 = 100%
 	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
 	[SerializeField] private bool m_AirControl = false;							// Whether or not a player can steer while jumping;
@@ -65,7 +66,7 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 
-	public void Move(float move, bool crouch, bool jump, bool jumpJustPressed)
+	public void Move(float move, bool crouch, bool jump, bool jumpJustPressed, bool hasSword)
 	{
 		// If crouching, check to see if the character can stand up
 		if (!crouch)
@@ -134,13 +135,13 @@ public class CharacterController2D : MonoBehaviour
 			{
                 // Add a vertical force to the player.
                 m_Grounded = false;
-                m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+                m_Rigidbody2D.AddForce(new Vector2(0f, hasSword ? m_JumpForce : JumpForceWithoutSword));
 				jumpHoldTimer = 0f;
             }
         }
 		if (!m_Grounded)
 		{
-			if (jump && jumpHoldTimer < m_JumpForce / 2000)
+            if (jump && jumpHoldTimer < m_JumpForce / 2000)
 			{
                 //Debug.Log(Time.deltaTime);
                 m_Rigidbody2D.gravityScale = 0.2f + jumpHoldTimer;
@@ -150,6 +151,7 @@ public class CharacterController2D : MonoBehaviour
 				m_Rigidbody2D.gravityScale = rigidBodyGravityScaleOriginal;
 			}
 		}
+
     }
 
 

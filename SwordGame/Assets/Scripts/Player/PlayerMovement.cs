@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     bool jumpButtonDown = false;
     bool jumpJustPressed = false;
 
+    public PivotMovement pivotMovement;
+
     InputAction moveAction;
     InputAction jumpAction;
 
@@ -34,8 +36,8 @@ public class PlayerMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
-        // move the character
-        controller.Move(horizontalMove * Time.fixedDeltaTime, false, jumpButtonDown, jumpJustPressed);
+        // move character
+        controller.Move(horizontalMove * Time.fixedDeltaTime, false, jumpButtonDown, jumpJustPressed, !pivotMovement.isThrown);
         jumpButtonDown = false;
         jumpJustPressed = false;
 
