@@ -73,6 +73,7 @@ public class SwordController : MonoBehaviour
         {
             if (swordBody.bodyType != RigidbodyType2D.Static)
             {
+                Debug.Log("Locking position!");
                 // lock position
                 var angle = sword.transform.eulerAngles.z;
                 angle = (angle + 360) % 360;
@@ -162,7 +163,7 @@ public class SwordController : MonoBehaviour
             }
 
             Vector2 direction = distance.normalized;
-            Debug.Log($"direction is {direction}");
+            //Debug.Log($"direction is {direction}");
             var maxVelocity = retractVelocity * retractTimer;
             if (swordBody.linearVelocity.magnitude < retractMinimumVelocity)
             {
