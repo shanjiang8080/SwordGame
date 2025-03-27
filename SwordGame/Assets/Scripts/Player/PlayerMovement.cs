@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         // move character
-        controller.Move(horizontalMove * Time.fixedDeltaTime, false, jumpButtonDown, jumpJustPressed, !pivotMovement.isThrown);
+        controller.Move(horizontalMove * Time.fixedDeltaTime, false, jumpButtonDown, jumpJustPressed, pivotMovement.isBeingHeld);
         jumpButtonDown = false;
         jumpJustPressed = false;
 

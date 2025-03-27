@@ -36,7 +36,7 @@ public class SwordController : MonoBehaviour
     private Quaternion oldRotation;
     private Vector2 angleV;
 
-    private bool isBeingHeld => !isThrown && !isRetracting;
+    public bool isBeingHeld => !isThrown && !isRetracting;
     [HideInInspector]
     public bool isThrown;
     [HideInInspector]

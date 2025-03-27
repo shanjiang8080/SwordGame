@@ -14,6 +14,7 @@ public class PivotMovement : MonoBehaviour
 
     public bool isThrown => controller.isThrown;
     public bool isRetracting => controller.isRetracting;
+    public bool isBeingHeld => controller.isBeingHeld;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
