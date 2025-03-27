@@ -519,7 +519,7 @@ GameObject:
   - component: {fileID: 1241204570}
   m_Layer: 0
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3146,7 +3146,6 @@ MonoBehaviour:
   player: {fileID: 1502889667}
   camera: {fileID: 519420031}
   controller: {fileID: 1797119664}
-  isThrown: 0
 --- !u!114 &1797119664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3164,6 +3163,19 @@ MonoBehaviour:
   smoothingSpeed: 3
   throwSpeed: 900
   player: {fileID: 1502889664}
+  gravityScale: 3
+  retractVelocity: 20
+  retractSnapDistance: 1
+  retractBodyTransferRatio: 1.1
+  retractInitialForce: 2
+  retractMinimumVelocity: 4.5
+  normalMaterial: {fileID: 6200000, guid: 3b9efcfdd40d79b44aafd4ef3baee561, type: 2}
+  retractMaterial: {fileID: 6200000, guid: 09496680b1dbecc4baaab36766888cc8, type: 2}
+  throwAngleDampenRatio: 0.5
+  retractAngleDampenRatio: 0.22
+  retractEaseForceRatio: 0.5
+  isThrown: 0
+  isRetracting: 0
 --- !u!70 &1797119665
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
