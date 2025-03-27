@@ -519,7 +519,7 @@ GameObject:
   - component: {fileID: 1241204570}
   m_Layer: 0
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3249,6 +3249,7 @@ GameObject:
   - component: {fileID: 1451539571}
   - component: {fileID: 1451539572}
   - component: {fileID: 1451539573}
+  - component: {fileID: 1451539574}
   m_Layer: 0
   m_Name: RatEnemy
   m_TagString: Untagged
@@ -3378,7 +3379,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -3411,6 +3412,18 @@ MonoBehaviour:
   - {fileID: 1380710472}
   moveSpeed: 3
   patrolDestination: 0
+--- !u!114 &1451539574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451539568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8762b7d62e6bcb74a9bfc282f14723dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1502889664
 GameObject:
   m_ObjectHideFlags: 0
@@ -3640,7 +3653,7 @@ GameObject:
   - component: {fileID: 1797119665}
   m_Layer: 0
   m_Name: Sword
-  m_TagString: Untagged
+  m_TagString: Sword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3730,7 +3743,6 @@ MonoBehaviour:
   player: {fileID: 1502889667}
   camera: {fileID: 519420031}
   controller: {fileID: 1797119664}
-  isThrown: 0
 --- !u!114 &1797119664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3748,6 +3760,19 @@ MonoBehaviour:
   smoothingSpeed: 3
   throwSpeed: 900
   player: {fileID: 1502889664}
+  gravityScale: 3
+  retractVelocity: 20
+  retractSnapDistance: 1
+  retractBodyTransferRatio: 1.1
+  retractInitialForce: 2
+  retractMinimumVelocity: 4.5
+  normalMaterial: {fileID: 6200000, guid: 3b9efcfdd40d79b44aafd4ef3baee561, type: 2}
+  retractMaterial: {fileID: 6200000, guid: 09496680b1dbecc4baaab36766888cc8, type: 2}
+  throwAngleDampenRatio: 0.5
+  retractAngleDampenRatio: 0.22
+  retractEaseForceRatio: 0.5
+  isThrown: 0
+  isRetracting: 0
 --- !u!70 &1797119665
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

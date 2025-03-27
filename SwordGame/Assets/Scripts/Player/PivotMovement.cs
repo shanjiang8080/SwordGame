@@ -12,13 +12,13 @@ public class PivotMovement : MonoBehaviour
     InputAction throwAction;
     private Vector2 angle;
 
-    public bool isThrown;
+    public bool isThrown => controller.isThrown;
+    public bool isRetracting => controller.isRetracting;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         pivotAction = InputSystem.actions.FindAction("Pivot");
         throwAction = InputSystem.actions.FindAction("Throw");
-        isThrown = false;
     }
 
     // Update is called once per frame
@@ -40,14 +40,18 @@ public class PivotMovement : MonoBehaviour
         // read throw/recall button
         if (throwAction.WasPressedThisFrame())
         {
-            if (!isThrown)
+            if (!isThrown && !isRetracting)
             {
-                isThrown = true;
                 Debug.Log("throw it!");
                 // throw has happened. throw the thing
                 // unparent the thing
                 transform.parent = null;
                 controller.Throw();
+            } else if (!isRetracting)
+            {
+                Debug.Log("recall it!");
+                // recall has happened...
+                controller.Recall();
             }
         }
     }
