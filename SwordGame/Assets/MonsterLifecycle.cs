@@ -4,6 +4,7 @@ public class MonsterLifecycle : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log($"Collision by {collision.tag}");
         if (collision.CompareTag("Sword"))
         {
             Debug.Log("Dying!!!");

@@ -71,17 +71,19 @@ public class SwordController : MonoBehaviour
         }
         if (touchingTerrain && isThrown)
         {
-            if (swordBody.bodyType != RigidbodyType2D.Static)
+            if (swordBody.bodyType != RigidbodyType2D.Kinematic)
             {
                 Debug.Log("Locking position!");
                 // lock position
                 var angle = sword.transform.eulerAngles.z;
                 angle = (angle + 360) % 360;
                 Vector2 dir = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
-                swordBody.bodyType = RigidbodyType2D.Static;
+                swordBody.bodyType = RigidbodyType2D.Kinematic;
                 // get the velocity, put yourself deeper in a bit.
                 var something = new Vector3(dir.y, dir.x, 0).normalized * 0.2f;
                 sword.transform.position += new Vector3(-something.x, something.y, 0);
+                // then, lock x and y position
+                swordBody.constraints = RigidbodyConstraints2D.FreezeAll;
                 // trying to do snapping so it doesnt look weird but it's not working right now. i'm going on break.
                 /*
                 float closestAngle = lockAngles[0];
@@ -198,6 +200,8 @@ public class SwordController : MonoBehaviour
         angle = (angle + 360) % 360;
         Vector2 dir = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
         sword.transform.position -= new Vector3(dir.y, dir.x, 0).normalized * 0.3f;
+
+        swordBody.constraints = RigidbodyConstraints2D.None;
 
         // set the rigidBody2D mode back to dynamic
         swordBody.bodyType = RigidbodyType2D.Dynamic;
