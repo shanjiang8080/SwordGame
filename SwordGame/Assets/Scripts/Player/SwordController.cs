@@ -203,6 +203,8 @@ public class SwordController : MonoBehaviour
         swordBody.gravityScale = gravityScale;
         swordBody.AddForce(angleV * throwSpeed);
         isThrown = true;
+        // but also make it go forward a bit
+        swordBody.position += swordBody.linearVelocity.normalized;
     }
     public void Recall()
     {
