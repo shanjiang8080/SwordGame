@@ -58,6 +58,17 @@ public class SwordController : MonoBehaviour
         collider = GetComponent<Collider2D>();
     }
 
+    // the player doesn't hold the sword at the beginning if this function is called at the start
+    public void StartNotHeld()
+    {
+        swordBody = gameObject.AddComponent<Rigidbody2D>();
+        isThrown = true;
+        var angle = sword.transform.eulerAngles.z;
+        angle = (angle + 360) % 360;
+        Vector2 dir = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
+        swordBody.bodyType = RigidbodyType2D.Kinematic;
+        swordBody.constraints = RigidbodyConstraints2D.FreezeAll;
+    }
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (!collision.gameObject.CompareTag("Terrain"))

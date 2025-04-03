@@ -20,6 +20,10 @@ public class PivotMovement : MonoBehaviour
     {
         pivotAction = InputSystem.actions.FindAction("Pivot");
         throwAction = InputSystem.actions.FindAction("Throw");
+        if (transform.parent == null)
+        {
+            controller.StartNotHeld();
+        }
     }
 
     // Update is called once per frame
