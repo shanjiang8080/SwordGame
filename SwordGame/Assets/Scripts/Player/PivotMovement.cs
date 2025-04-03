@@ -10,6 +10,7 @@ public class PivotMovement : MonoBehaviour
 
     InputAction pivotAction;
     InputAction throwAction;
+    InputAction pivotToggleAction;
     private Vector2 angle;
 
     public bool isThrown => controller.isThrown;
@@ -20,6 +21,8 @@ public class PivotMovement : MonoBehaviour
     {
         pivotAction = InputSystem.actions.FindAction("Pivot");
         throwAction = InputSystem.actions.FindAction("Throw");
+        pivotToggleAction = InputSystem.actions.FindAction("PivotToggle");
+        //angle = Vector2.up;
         if (transform.parent == null)
         {
             controller.StartNotHeld();
@@ -35,7 +38,7 @@ public class PivotMovement : MonoBehaviour
             angle = pivotAction.ReadValue<Vector2>().normalized;
 
         }
-        else if (Mouse.current != null)
+        else if (Mouse.current != null /*&& pivotToggleAction.IsPressed()*/)
         {
             var worldposition = camera.ScreenToWorldPoint(pivotAction.ReadValue<Vector2>());
             worldposition.z = 0f;

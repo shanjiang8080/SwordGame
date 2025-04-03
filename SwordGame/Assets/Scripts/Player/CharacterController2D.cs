@@ -40,6 +40,9 @@ public class CharacterController2D : MonoBehaviour
 	public float coyoteTimerMax = 0.1f;
 	public float jumpBufferTimerMax = 0.1f;
 
+	// animation
+	private Animator anim;
+	private SpriteRenderer renderer;
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -55,6 +58,8 @@ public class CharacterController2D : MonoBehaviour
     {
 		coyoteTimer = coyoteTimerMax;
 		jumpBufferTimer = jumpBufferTimerMax;
+		anim = GetComponent<Animator>();
+		renderer = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()
@@ -79,6 +84,13 @@ public class CharacterController2D : MonoBehaviour
 
 	public void Move(float move, bool crouch, bool jump, bool jumpJustPressed, bool hasSword)
 	{
+		anim.SetBool("isMoving", move != 0);
+		anim.SetBool("facingRight", m_FacingRight);
+		anim.SetBool("movingUp", m_Rigidbody2D.linearVelocityY > 0);
+		anim.SetBool("isMidair", !m_Grounded);
+		renderer.flipX = !m_FacingRight;
+
+
 		// If crouching, check to see if the character can stand up
 		if (!crouch)
 		{
