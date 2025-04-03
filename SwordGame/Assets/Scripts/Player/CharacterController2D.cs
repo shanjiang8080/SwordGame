@@ -34,6 +34,12 @@ public class CharacterController2D : MonoBehaviour
 	public BoolEvent OnCrouchEvent;
 	private bool m_wasCrouching = false;
 
+	// timers for jump buffering and coyote time
+	private float coyoteTimer = 0;
+	private float jumpBufferTimer;
+	public float coyoteTimerMax = 0.1f;
+	public float jumpBufferTimerMax = 0.1f;
+
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -45,8 +51,13 @@ public class CharacterController2D : MonoBehaviour
 		if (OnCrouchEvent == null)
 			OnCrouchEvent = new BoolEvent();
 	}
+    private void Start()
+    {
+		coyoteTimer = coyoteTimerMax;
+		jumpBufferTimer = jumpBufferTimerMax;
+    }
 
-	private void FixedUpdate()
+    private void FixedUpdate()
 	{
 		bool wasGrounded = m_Grounded;
 		m_Grounded = false;
@@ -78,6 +89,15 @@ public class CharacterController2D : MonoBehaviour
 			}
 		}
 
+		// if jump just pressed, then set the jumpBufferTimer to 0.
+		if (jumpJustPressed)
+		{
+			jumpBufferTimer = 0;
+		} else
+		{
+			jumpBufferTimer = Mathf.Min(jumpBufferTimer + Time.deltaTime, jumpBufferTimerMax);
+		}
+
 		//only control the player if grounded or airControl is turned on
 		if (m_Grounded || m_AirControl)
 		{
@@ -97,7 +117,8 @@ public class CharacterController2D : MonoBehaviour
 				// Disable one of the colliders when crouching
 				if (m_CrouchDisableCollider != null)
 					m_CrouchDisableCollider.enabled = false;
-			} else
+			}
+			else
 			{
 				// Enable the collider when not crouching
 				if (m_CrouchDisableCollider != null)
@@ -130,17 +151,22 @@ public class CharacterController2D : MonoBehaviour
 		}
 		// If the player should jump...
 		if (m_Grounded)
-		{
-			if (jumpJustPressed)
+        {
+            coyoteTimer = 0;
+			if (jumpJustPressed || jumpBufferTimer < jumpBufferTimerMax)
 			{
-                // Add a vertical force to the player.
-                m_Grounded = false;
-                m_Rigidbody2D.AddForce(new Vector2(0f, hasSword ? m_JumpForce : JumpForceWithoutSword));
-				jumpHoldTimer = 0f;
+				jumpBufferTimer = jumpBufferTimerMax;
+                Jump(hasSword);
             }
         }
-		if (!m_Grounded)
+        if (!m_Grounded)
 		{
+			coyoteTimer = Mathf.Min(coyoteTimer + Time.deltaTime, coyoteTimerMax);
+			if (coyoteTimer < coyoteTimerMax && jumpJustPressed)
+			{
+				Jump(hasSword);
+			}
+
             if (jump && jumpHoldTimer < m_JumpForce / 2000)
 			{
                 //Debug.Log(Time.deltaTime);
@@ -154,6 +180,16 @@ public class CharacterController2D : MonoBehaviour
 
     }
 
+    private void Jump(bool hasSword)
+    {
+		// cancel the existing force of the player
+		m_Rigidbody2D.linearVelocityY = 0;
+        // Add a vertical force to the player.
+        m_Grounded = false;
+        m_Rigidbody2D.AddForce(new Vector2(0f, hasSword ? m_JumpForce : JumpForceWithoutSword));
+        jumpHoldTimer = 0f;
+		coyoteTimer = coyoteTimerMax;
+    }
 
     private void Flip()
 	{

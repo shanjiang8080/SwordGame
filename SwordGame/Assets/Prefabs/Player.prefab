@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7383268566948671641}
   - component: {fileID: 7432830403891425344}
   - component: {fileID: 5229553359612700193}
+  - component: {fileID: 5926768689554404253}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -135,6 +136,8 @@ MonoBehaviour:
   OnCrouchEvent:
     m_PersistentCalls:
       m_Calls: []
+  coyoteTimerMax: 0.1
+  jumpBufferTimerMax: 0.1
 --- !u!114 &7383268566948671641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,7 +152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 3894741085836255825}
   runSpeed: 100
-  pivotMovement: {fileID: 0}
+  pivotMovement: {fileID: 375451124886620845}
 --- !u!50 &7432830403891425344
 Rigidbody2D:
   serializedVersion: 5
@@ -214,6 +217,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!114 &5926768689554404253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850173726550759744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21740c79e0bb68843ae1c4e7dd3a396d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8061625869833957960
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,15 +339,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1920414836424617779, guid: 45f13440d028f0a43ad25779f72d7b2e, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1850173726550759744}
     - target: {fileID: 4166248775458713086, guid: 45f13440d028f0a43ad25779f72d7b2e, type: 3}
       propertyPath: m_Name
       value: Sword
       objectReference: {fileID: 0}
+    - target: {fileID: 9084554947795647893, guid: 45f13440d028f0a43ad25779f72d7b2e, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2476063324507775499}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45f13440d028f0a43ad25779f72d7b2e, type: 3}
+--- !u!114 &375451124886620845 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9084554947795647893, guid: 45f13440d028f0a43ad25779f72d7b2e, type: 3}
+  m_PrefabInstance: {fileID: 8874075166553093944}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85015dc1190e982489673838678277e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7867179531923873305 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1588321799698442529, guid: 45f13440d028f0a43ad25779f72d7b2e, type: 3}
