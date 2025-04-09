@@ -8,6 +8,7 @@ TagManager:
   - Sword
   - Damage
   - Trigger
+  - Coin
   layers:
   - Default
   - TransparentFX
