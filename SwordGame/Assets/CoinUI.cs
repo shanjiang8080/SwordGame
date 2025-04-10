@@ -7,7 +7,7 @@ public class CoinUI : MonoBehaviour
     {
         if (instance == null)
         {
-            instance = this;
+            instance = gameObject.transform.GetChild(0).GetComponent<CoinUI>();
             DontDestroyOnLoad(gameObject);
         }
         else

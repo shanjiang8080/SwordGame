@@ -14,7 +14,8 @@ public class CoinCounter : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        coinText = CoinUI.instance.GetComponent<TMP_Text>();
+        if (CoinUI.instance != null)
+            coinText = CoinUI.instance.GetComponent<TMP_Text>();
         _coinCount = 0;
         SceneName = gameObject.scene.name;
         SceneManager.sceneLoaded += OnSceneLoaded;

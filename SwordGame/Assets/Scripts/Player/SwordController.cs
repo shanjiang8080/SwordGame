@@ -180,8 +180,17 @@ public class SwordController : MonoBehaviour
             var maxVelocity = retractVelocity * retractTimer;
             if (swordBody.linearVelocity.magnitude < retractMinimumVelocity)
             {
-                // give it a force in the direction
-                swordBody.AddForce(direction * retractMinimumVelocity, ForceMode2D.Impulse);
+                // reset the original thing, give it a new thing
+                if ((retractMinimumVelocity) < swordBody.linearVelocity.magnitude)
+                {
+                    swordBody.AddForce(direction * (swordBody.linearVelocity.magnitude), ForceMode2D.Impulse);
+
+                }
+                else
+                {
+                    // give it a force in the direction
+                    swordBody.AddForce(direction * retractMinimumVelocity, ForceMode2D.Impulse);
+                }
             }
             else if (swordBody.linearVelocity.magnitude < maxVelocity)
             {
