@@ -17,6 +17,10 @@ public class CoinCollector : MonoBehaviour
         if (collision.IsTouching(collider) && collision.CompareTag("Coin"))
         {
             counter.CoinCount++;
+            // get the game object and add it to the coins
+            var userID = collision.gameObject.GetComponent<CoinCreation>().uid;
+            counter.coins.Add(userID);
+
             // destroy the coin
             Destroy(collision.gameObject);
         }
