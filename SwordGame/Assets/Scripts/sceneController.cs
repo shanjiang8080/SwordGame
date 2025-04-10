@@ -22,6 +22,10 @@ public class sceneController : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }
+    public void GoToLevel(int id)
+    {
+        SceneManager.LoadSceneAsync(id);
+    }
 
     public void LoadScene(string sceneName)
     {
