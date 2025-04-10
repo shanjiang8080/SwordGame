@@ -23,6 +23,8 @@ public class CharacterController2D : MonoBehaviour
 	private float jumpHoldTimer = 0f;
 	private float rigidBodyGravityScaleOriginal = 0f;
 
+	private bool hasSword = true;
+
 	[Header("Events")]
 	[Space]
 
@@ -74,6 +76,7 @@ public class CharacterController2D : MonoBehaviour
 		{
 			if (colliders[i].gameObject != gameObject && !colliders[i].isTrigger)
 			{
+				if (colliders[i].gameObject.CompareTag("Sword") && hasSword) continue;
 				m_Grounded = true;
 				if (!wasGrounded)
 					OnLandEvent.Invoke();
@@ -84,6 +87,7 @@ public class CharacterController2D : MonoBehaviour
 
 	public void Move(float move, bool crouch, bool jump, bool jumpJustPressed, bool hasSword)
 	{
+		this.hasSword = hasSword;
 		anim.SetBool("isMoving", move != 0);
 		anim.SetBool("facingRight", m_FacingRight);
 		anim.SetBool("movingUp", m_Rigidbody2D.linearVelocityY > 0);

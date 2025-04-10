@@ -21,7 +21,7 @@ public class PlayerLifeCycle : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log($"From Player: collision from {collision.tag}");
+        //Debug.Log($"From Player: collision from {collision.tag}");
         
         if (collision.IsTouching(collider) && collision.CompareTag("Damage"))
         {
