@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 757881661358355107}
   - component: {fileID: 469923838960178755}
   - component: {fileID: 5392240177108922124}
+  - component: {fileID: 1165484652911516751}
   m_Layer: 0
   m_Name: Bat Enemy
   m_TagString: Damage
@@ -237,6 +238,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.8157682, y: 0.6342235}
   m_EdgeRadius: 0
+--- !u!114 &1165484652911516751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6845867030291572933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8762b7d62e6bcb74a9bfc282f14723dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8115641454432687274
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,8 +259,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4273131330812908014}
-  - component: {fileID: 3668744181119760894}
-  - component: {fileID: 7633695242492688317}
   m_Layer: 0
   m_Name: 'Bat '
   m_TagString: Damage
@@ -273,61 +284,3 @@ Transform:
   - {fileID: 2283251439437221321}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3668744181119760894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8115641454432687274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8762b7d62e6bcb74a9bfc282f14723dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!61 &7633695242492688317
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8115641454432687274}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: -1.2587395, y: 0.24578953}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.71697235, y: 0.50842094}
-  m_EdgeRadius: 0
