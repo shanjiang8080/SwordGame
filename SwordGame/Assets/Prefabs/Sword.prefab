@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4166248775458713086}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.91, y: 13.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -124,8 +124,8 @@ MonoBehaviour:
   player: {fileID: 0}
   gravityScale: 3
   retractVelocity: 20
-  retractSnapDistance: 1
-  retractBodyTransferRatio: 1.1
+  retractSnapDistance: 1.5
+  retractBodyTransferRatio: 1
   retractInitialForce: 2
   retractMinimumVelocity: 4.5
   normalMaterial: {fileID: 6200000, guid: 3b9efcfdd40d79b44aafd4ef3baee561, type: 2}
@@ -169,6 +169,6 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 1.5}
-  m_Size: {x: 0.35173792, y: 3}
+  m_Offset: {x: 0, y: 1.5910103}
+  m_Size: {x: 0.35173792, y: 2.8179793}
   m_Direction: 0
