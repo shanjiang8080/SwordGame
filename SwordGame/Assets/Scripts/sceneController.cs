@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class sceneController : MonoBehaviour
 {
     public static sceneController instance;
-
     private void Awake()
     {
         if (instance == null)
