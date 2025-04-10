@@ -7,6 +7,7 @@ public class doorNextLevel : MonoBehaviour
         if (collision.CompareTag("Player")) 
         {
             // Go to the next level
+            PlayerLifeCycle.CurrentRespawn = Vector2.zero;
             sceneController.instance.NextLevel();
         }
     }
