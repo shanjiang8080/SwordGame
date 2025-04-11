@@ -1,3 +1,4 @@
+[Play the game here!](https://shanjiang8080.itch.io/flingblade?secret=PMJ2FWgtWMj6Z2InDG56MgeErY)
 # FlingBlade
 Made in about a month as part of a group project. 
 ## Contributors:
