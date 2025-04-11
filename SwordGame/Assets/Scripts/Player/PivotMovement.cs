@@ -25,6 +25,7 @@ public class PivotMovement : MonoBehaviour
         //angle = Vector2.up;
         if (transform.parent == null)
         {
+            Debug.Log("I am starting not being held!");
             controller.StartNotHeld();
         }
     }

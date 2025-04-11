@@ -63,6 +63,7 @@ public class SwordController : MonoBehaviour
     {
         swordBody = gameObject.AddComponent<Rigidbody2D>();
         isThrown = true;
+        touchingTerrain = true;
         var angle = sword.transform.eulerAngles.z;
         angle = (angle + 360) % 360;
         Vector2 dir = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
@@ -207,8 +208,14 @@ public class SwordController : MonoBehaviour
     }
     public void Throw()
     {
-        // add a rigidBody2D component.
-        swordBody = gameObject.AddComponent<Rigidbody2D>();
+        // try to add a rigidBody2D component.
+        if (gameObject.GetComponent<Rigidbody2D>() != null)
+        {
+            Debug.Log("For some reason, there's already a rigidbody 2d. uhhh");
+        } else
+        {
+            swordBody = gameObject.AddComponent<Rigidbody2D>();
+        }
         swordBody.gravityScale = gravityScale;
         swordBody.AddForce(angleV * throwSpeed);
         isThrown = true;
