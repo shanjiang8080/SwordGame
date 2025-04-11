@@ -24710,6 +24710,30 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 2753277081646335556, guid: b9261587a1c66624e8ac8d109dba2cbf, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753277081646335556, guid: b9261587a1c66624e8ac8d109dba2cbf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753277081646335556, guid: b9261587a1c66624e8ac8d109dba2cbf, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753277081646335556, guid: b9261587a1c66624e8ac8d109dba2cbf, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753277081646335556, guid: b9261587a1c66624e8ac8d109dba2cbf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753277081646335556, guid: b9261587a1c66624e8ac8d109dba2cbf, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 8888341676189560112, guid: b9261587a1c66624e8ac8d109dba2cbf, type: 3}
       propertyPath: m_Pivot.x
       value: 0
